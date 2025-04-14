@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=0.6">
+    <meta name="description" content="Vexx - Game Dev">
+    <meta property="og:title" content="Vexx">
+    <meta property="og:description" content="Game Dev">
+    <meta property="og:image" content="images/vexx2.png">
+    <meta name="theme-color" content="#5d9cff">
+    <title>Emperor</title>
+
+    <link rel="icon" type="image/png" href="images/vexx2.png">
+
+    <link rel="stylesheet" type="text/css" href="css/bio3.css">
+    <link href="https://fonts.googleapis.com/css2?family=GreycliffCF&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    
+    <style>
+
+        .profile {
+            transition: box-shadow 0.3s ease;
+        }
+
+        .profile:hover {
+            box-shadow: 0 0 20px rgba(75, 0, 130, 0.5);
+        }
+
+        .link svg {
+            color: #ffffff !important;
+            fill: #ffffff !important;
+            filter: drop-shadow(0px 0px 4px #ffffff) !important;
+        }
+
+        .displayname {
+            color: #ffffff !important;
+            text-shadow: 
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #4b0082,
+                0 0 42px #4b0082;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 
+                    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #4b0082,
+                    0 0 42px #4b0082;
+            }
+            to {
+                text-shadow: 
+                    0 0 10px #fff,
+                    0 0 20px #fff,
+                    0 0 30px #4b0082,
+                    0 0 50px #4b0082;
+            }
+        }
+
+        .views-text {
+            color: #ffffff !important;
+        }
+
+        .breath {
+            background: linear-gradient(90deg, #000000 30%, 50%, #000000 70%);
+            background-size: 200%;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: breathing 3s linear infinite;
+        }
+
+        @keyframes breathing {
+            0% {
+                background-position: 150%;
+            }
+            100% {
+                background-position: -50%;
+            }
+        }
+    </style>
+
+</head>
+
+<body onload="document.body.style.opacity='1'" style="opacity: 1;">
+    <div id="particles-js" class="particles-js"></div>
+    <audio src="audio/aiwiy.mp3" autoplay loop></audio>
+
+    <div class="outer" style="background-image: url('images/vexx3.png');">
+        <div class="overlay"></div>
+
+        <div class="main-container" style="top: 50%; opacity: 1;">
+            <div class="profile" id="profile" style="background-image: linear-gradient(360deg, rgba(75, 0, 130, 0.8), rgba(0, 0, 0, 0.8)); backdrop-filter: blur(0px);">
+                <img class="pic" src="images/vexx3.png" alt="pfp">
+                <p class="displayname">Vexx</p>
+                <p class="description typewriter" id="bio">Game Dev<br>made the website</p>
+
+                <img id="background-gif" src="images/weird.png.mp4" style="width: 115px; position: absolute; top: -90px; right: 22px;">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bio.js"></script>
+    <audio id="soundthing" src="audio/von.mp3" preload="auto" loop></audio>
+    <script>
+        var audio = document.getElementById('soundthing');
+        audio.volume = 0.2;
+
+        function toggleAudio(event) {
+            if (event.target.tagName === 'BUTTON' || event.target.tagName === 'A') {
+                return;
+            }
+            if (audio.paused) {
+                audio.play().catch(function(error) {
+                    console.log('Error playing audio', error);
+                });
+            } else {
+                audio.pause();
+            }
+        }
+        document.addEventListener('click', toggleAudio);
+    </script>
+
+    <script src="js/cursorEffects.js"></script>
+    <script>fairyDustCursor();</script>
+</body>
+
+</html>
